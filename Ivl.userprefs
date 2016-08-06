@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Ivl.Cocoa/Ivl.Cocoa.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Ivl.Cocoa/ViewController.cs">
+    <Files>
+      <File FileName="Ivl.Cocoa/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="Ivl.Cocoa/Main.cs" Line="10" Column="29" />
+      <File FileName="Ivl.Cocoa/ViewController.cs" Line="10" Column="31" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Ivl.Cocoa PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
