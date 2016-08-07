@@ -90,8 +90,8 @@
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ivl\Ivl\Ivl.csproj">
-      <Project>{BE58B1DB-6826-42F9-9062-291E311F089E}</Project>
+    <ProjectReference Include="..\Ivl\Ivl.csproj">
+      <Project>{768AE570-9BC3-46E6-B5A6-3834253B5B5F}</Project>
       <Name>Ivl</Name>
     </ProjectReference>
   </ItemGroup>

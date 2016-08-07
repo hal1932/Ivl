@@ -16,7 +16,7 @@ namespace Ivl.Cocoa
 			base.ViewDidLoad();
 
 			// Do any additional setup after loading the view.
-			Console.WriteLine(Ivl.MyClass.Test());
+			Console.WriteLine(Ivl.Class1.Test());
 		}
 
 		public override NSObject RepresentedObject
