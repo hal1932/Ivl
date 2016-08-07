@@ -23,6 +23,7 @@ namespace Ivl.Wpf
         public MainWindow()
         {
             InitializeComponent();
+            Title = Ivl.Class1.Test();
         }
     }
 }
