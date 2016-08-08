@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Controls;
 
 namespace Ivl
 {
@@ -9,7 +10,8 @@ namespace Ivl
     {
         public static string Test()
         {
-            return "Ivl";
+            var m = new MediaElement();
+            return m.Source?.AbsolutePath ?? string.Empty;
         }
     }
 }
