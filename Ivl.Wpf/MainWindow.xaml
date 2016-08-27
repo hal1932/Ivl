@@ -4,9 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ivl.Wpf"
+        xmlns:explorer="clr-namespace:Ivl.Wpf.Explorer"
+        xmlns:inspector="clr-namespace:Ivl.Wpf.Inspector"
+        xmlns:preview="clr-namespace:Ivl.Wpf.Preview"
+        xmlns:toolbox="clr-namespace:Ivl.Wpf.ToolBox"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="600" Width="1000">
+
+    <DockPanel>
+        <toolbox:ToolBoxMain DockPanel.Dock="Top"></toolbox:ToolBoxMain>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <explorer:ExplorerControl Grid.Column="0" DataContext="{Binding ExplorerContext}"/>
+            <GridSplitter Grid.Column="1" Width="1" HorizontalAlignment="Center"/>
+            <preview:PreviewControl Grid.Column="2" DataContext="{Binding PreviewContext}"/>
+            <GridSplitter Grid.Column="3" Width="1" HorizontalAlignment="Center"/>
+            <inspector:InspectorControl Grid.Column="4" DataContext="{Binding InspectorContext}"/>
+        </Grid>
+    </DockPanel>
+    
 </Window>

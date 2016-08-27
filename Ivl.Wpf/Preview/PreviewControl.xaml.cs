@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Ivl.Wpf
+namespace Ivl.Wpf.Preview
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// PreviewMain.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PreviewControl : UserControl
     {
-        public MainWindow()
+        public PreviewControl()
         {
             InitializeComponent();
-
-            Loaded += (s, e) =>
-            {
-                var dataContext = new MainViewModel();
-                dataContext.Initialize();
-                DataContext = dataContext;
-            };
         }
     }
 }

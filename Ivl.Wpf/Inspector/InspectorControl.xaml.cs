@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Ivl.Wpf
+namespace Ivl.Wpf.Inspector
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// InspectorMain.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InspectorControl : UserControl
     {
-        public MainWindow()
+        public InspectorControl()
         {
             InitializeComponent();
-
-            Loaded += (s, e) =>
-            {
-                var dataContext = new MainViewModel();
-                dataContext.Initialize();
-                DataContext = dataContext;
-            };
         }
     }
 }

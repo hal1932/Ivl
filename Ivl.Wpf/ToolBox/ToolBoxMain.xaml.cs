@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Ivl.Wpf
+namespace Ivl.Wpf.ToolBox
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// ToolBoxMain.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ToolBoxMain : UserControl
     {
-        public MainWindow()
+        public ToolBoxMain()
         {
             InitializeComponent();
-
-            Loaded += (s, e) =>
-            {
-                var dataContext = new MainViewModel();
-                dataContext.Initialize();
-                DataContext = dataContext;
-            };
         }
     }
 }
