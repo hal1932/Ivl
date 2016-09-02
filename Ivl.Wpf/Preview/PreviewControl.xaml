@@ -7,12 +7,44 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-    <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <TextBlock Text="{Binding Name}"/>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources.xaml"/>
+                <ResourceDictionary>
+                    <DataTemplate DataType="{x:Type local:NameListViewModel}">
+                        <local:NameList/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type local:ThumbnailGridViewModel}">
+                        <local:ThumbnailGrid/>
+                    </DataTemplate>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="16">
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <Button Command="{Binding SetItemContextCommand}" CommandParameter="{x:Type local:NameListViewModel}">
+                    <Button.Content>
+                        <Image Source="{StaticResource List}"/>
+                    </Button.Content>
+                </Button>
+                <Button Command="{Binding SetItemContextCommand}" CommandParameter="{x:Type local:ThumbnailGridViewModel}">
+                    <Button.Content>
+                        <Image Source="{StaticResource Grid}"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            
+            <DockPanel>
+                <Image DockPanel.Dock="Left" Source="{StaticResource Folder}" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding CurrentDirectory.FullName}"/>
+            </DockPanel>
+        </DockPanel>
+
+        <ContentControl Content="{Binding ItemsContext}"/>
+    </DockPanel>
 
 </UserControl>

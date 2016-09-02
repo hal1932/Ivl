@@ -50,6 +50,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -72,7 +73,16 @@
     <Compile Include="Explorer\ExplorerViewModel.cs" />
     <Compile Include="Inspector\InspectorViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="Preview\ItemsControlBase.cs" />
+    <Compile Include="Preview\NameList.xaml.cs">
+      <DependentUpon>NameList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Preview\NameListViewModel.cs" />
     <Compile Include="Preview\PreviewViewModel.cs" />
+    <Compile Include="Preview\ThumbnailGrid.xaml.cs">
+      <DependentUpon>ThumbnailGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Preview\ThumbnailGridViewModel.cs" />
     <Compile Include="ToolBox\ToolBoxMain.xaml.cs">
       <DependentUpon>ToolBoxMain.xaml</DependentUpon>
     </Compile>
@@ -102,7 +112,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Preview\NameList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Preview\PreviewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Preview\Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Preview\ThumbnailGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,7 +171,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
+    <Resource Include="Resources\folder_Open_16xLG.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\asset_uniformGrid_24x24_on.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Justify_11694.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

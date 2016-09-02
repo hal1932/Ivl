@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Ivl.Wpf.Preview">
+
+    <BitmapImage x:Key="Folder" UriSource="..\Resources\folder_Open_16xLG.png"/>
+    <BitmapImage x:Key="Grid" UriSource="..\Resources\asset_uniformGrid_24x24_on.png"/>
+    <BitmapImage x:Key="List" UriSource="..\Resources\Justify_11694.png"/>
+
+</ResourceDictionary>

@@ -1,6 +1,8 @@
 ﻿using Ivl.Common;
+using Microsoft.Practices.Prism.Commands;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,6 +15,19 @@ namespace Ivl.Wpf.Preview
         public delegate void OnSelectionChanged(FileSystemInfo info);
         public event OnSelectionChanged SelectionChanged;
 
+        private DelegateCommand<Type> _setItemContextCommand;
+        public DelegateCommand<Type> SetItemContextCommand
+        {
+            get { return _setItemContextCommand ?? (_setItemContextCommand = new DelegateCommand<Type>(contextType => SetItemContext(contextType))); }
+        }
+
+        private ItemsControlBase _itemsContext;
+        public ItemsControlBase ItemsContext
+        {
+            get { return _itemsContext; }
+            set { SetProperty(ref _itemsContext, value); }
+        }
+
         private DirectoryInfo _currentDirectory;
         public DirectoryInfo CurrentDirectory
         {
@@ -21,28 +36,26 @@ namespace Ivl.Wpf.Preview
             {
                 if (SetProperty(ref _currentDirectory, value))
                 {
-                    ChangeDirectory(value);
+                    ItemsContext?.UpdateItems(value);
                 }
             }
         }
 
-        private FileSystemInfo[] _items;
-        public FileSystemInfo[] Items
+        public PreviewViewModel()
         {
-            get { return _items; }
-            set { SetProperty(ref _items, value); }
+            SetItemContext(typeof(NameListViewModel));
         }
 
-        public FileSystemInfo SelectedItem
+        private void SetItemContext(Type itemsContextType)
         {
-            set { SelectionChanged?.Invoke(value); }
-        }
+            var newItemsContext = (Activator.CreateInstance(itemsContextType) as ItemsControlBase);
+            Debug.Assert(newItemsContext != null);
 
-        private void ChangeDirectory(DirectoryInfo directory)
-        {
-            Items = directory.EnumerateDirectories().Select(info => info as FileSystemInfo)
-                .Concat(directory.EnumerateFiles())
-                .ToArray();
+            newItemsContext.SelectionChanged += info => SelectionChanged?.Invoke(info);
+            newItemsContext.Items = ItemsContext?.Items;
+            newItemsContext.SelectedItem = ItemsContext?.SelectedItem;
+
+            ItemsContext = newItemsContext;
         }
     }
 }
